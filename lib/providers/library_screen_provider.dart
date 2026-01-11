@@ -13,6 +13,7 @@ import 'package:fladder/models/recommended_model.dart';
 import 'package:fladder/models/view_model.dart';
 import 'package:fladder/providers/api_provider.dart';
 import 'package:fladder/providers/service_provider.dart';
+import 'package:fladder/providers/settings/client_settings_provider.dart';
 import 'package:fladder/providers/views_provider.dart';
 import 'package:fladder/util/localization_helper.dart';
 
@@ -66,8 +67,20 @@ class LibraryScreen extends _$LibraryScreen {
 
   Future<void> fetchAllLibraries() async {
     final views = await ref.read(viewsProvider.notifier).fetchViews();
-    state = state.copyWith(
-        views: views?.views.where((element) => element.collectionType != CollectionType.folders).toList() ?? []);
+    final showFolders = ref.read(
+        clientSettingsProvider.select((value) => value.showFoldersInLibrary));
+
+    if (showFolders) {
+      state = state.copyWith(views: views?.views ?? []);
+    } else {
+      state = state.copyWith(
+          views: views?.views
+                  .where((element) =>
+                      element.collectionType != CollectionType.folders)
+                  .toList() ??
+              []);
+    }
+
     if (state.views.isEmpty) return;
     final viewModel = state.selectedViewModel ?? state.views.firstOrNull;
     if (viewModel == null) return;

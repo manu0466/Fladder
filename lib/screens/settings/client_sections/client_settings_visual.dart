@@ -71,6 +71,19 @@ List<Widget> buildClientSettingsVisual(
         ),
       ),
       SettingsListTile(
+        label: Text(context.localized.settingsShowFoldersInLibrary),
+        subLabel: Text(context.localized.settingsShowFoldersInLibraryDesc),
+        onTap: () => ref.read(clientSettingsProvider.notifier).update(
+              (current) => current.copyWith(showFoldersInLibrary: !current.showFoldersInLibrary),
+            ),
+        trailing: Switch(
+          value: clientSettings.showFoldersInLibrary,
+          onChanged: (value) => ref.read(clientSettingsProvider.notifier).update(
+                (current) => current.copyWith(showFoldersInLibrary: value),
+              ),
+        ),
+      ),
+      SettingsListTile(
         label: Text(context.localized.settingsBlurEpisodesTitle),
         subLabel: Text(context.localized.settingsBlurEpisodesDesc),
         onTap: () => ref.read(clientSettingsProvider.notifier).setBlurEpisodes(!clientSettings.blurUpcomingEpisodes),

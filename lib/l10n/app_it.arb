@@ -1507,5 +1507,7 @@
     "screenshotCleanTaken": "Screenshot senza sottotitoli salvato!",
     "@screenshotCleanTaken": {},
     "errorTakingScreenshot": "Si è verificato un errore durante l'acquisizione dello screenshot",
-    "@errorTakingScreenshot": {}
+    "@errorTakingScreenshot": {},
+    "settingsShowFoldersInLibrary": "Mostra le cartelle nella librerie",
+    "settingsShowFoldersInLibraryDesc": "Mostra le cartelle con contenuti misti nella libreria"
 }

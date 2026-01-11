@@ -2180,5 +2180,7 @@
     }
   },
   "processing": "Processing",
-  "seerrDetails": "Seerr details"
+  "seerrDetails": "Seerr details",
+  "settingsShowFoldersInLibrary": "Show folders in libraries screen",
+  "settingsShowFoldersInLibraryDesc": "Show folders with mixed content in the libraries screen"
 }

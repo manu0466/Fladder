@@ -83,6 +83,7 @@ abstract class ClientSettingsModel with _$ClientSettingsModel {
     @Default(true) bool checkForUpdates,
     @Default(false) bool usePosterForLibrary,
     @Default(false) bool useSystemIME,
+    @Default(false) bool showFoldersInLibrary,
     String? lastViewedUpdate,
     int? libraryPageSize,
     @Default({}) Map<GlobalHotKeys, KeyCombination> shortcuts,
